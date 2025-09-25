@@ -1,0 +1,409 @@
+{
+  "Plant Species": [
+    {
+      "Plant Group": "Algae",
+      "Families": 67,
+      "Genera": 281,
+      "Species": 1335
+    },
+    {
+      "Plant Group": "Lichens",
+      "Genera": 14,
+      "Species": 17
+    },
+    {
+      "Plant Group": "Fungi (Mushrooms)",
+      "Families": 26,
+      "Genera": 60,
+      "Species": 134
+    },
+    {
+      "Plant Group": "Mosses",
+      "Genera": 13,
+      "Species": 16
+    },
+    {
+      "Plant Group": "Liverworts",
+      "Genera": 16,
+      "Species": 6
+    },
+    {
+      "Plant Group": "Pteridophytes",
+      "Families": 27,
+      "Genera": 64,
+      "Species": 165
+    },
+    {
+      "Plant Group": "Gymnosperms",
+      "Families": 2,
+      "Genera": 3,
+      "Species": 5
+    },
+    {
+      "Plant Group": "Chlamydosperms",
+      "Families": 2,
+      "Genera": 2,
+      "Species": 6
+    },
+    {
+      "Plant Group": "Monocotyledons",
+      "Families": 42,
+      "Genera": 376,
+      "Species": 1575
+    },
+    {
+      "Plant Group": "Dicotyledons",
+      "Families": 172,
+      "Genera": 1396,
+      "Species": 4636
+    }
+  ],
+  "Game Reserves": [
+    {
+      "S/No": 1,
+      "Name of Reserve": "Ebbazikampe",
+      "Location": "Kwara",
+      "Vegetation Type": "Guinea Savannah"
+    },
+    {
+      "S/No": 2,
+      "Name of Reserve": "Okpara",
+      "Location": "Oyo",
+      "Vegetation Type": "Rainforest"
+    },
+    {
+      "S/No": 3,
+      "Name of Reserve": "Upper Ogun",
+      "Location": "Oyo",
+      "Vegetation Type": "Dry Forest/Guinea Savannah"
+    },
+    {
+      "S/No": 4,
+      "Name of Reserve": "Ohosu",
+      "Location": "Edo",
+      "Vegetation Type": "Lowland Rainforest"
+    },
+    {
+      "S/No": 5,
+      "Name of Reserve": "Ologbo",
+      "Location": "Edo",
+      "Vegetation Type": "Lowland Rainforest"
+    },
+    {
+      "S/No": 6,
+      "Name of Reserve": "Iri-Ada-Obi",
+      "Location": "Edo",
+      "Vegetation Type": "Lowland Rainforest"
+    },
+    {
+      "S/No": 7,
+      "Name of Reserve": "Ologbolo-Emu-Urho",
+      "Location": "Edo",
+      "Vegetation Type": "Lowland Rainforest"
+    },
+    {
+      "S/No": 8,
+      "Name of Reserve": "Orle River",
+      "Location": "Edo",
+      "Vegetation Type": "Lowland Rainforest"
+    },
+    {
+      "S/No": 9,
+      "Name of Reserve": "Gilli-Gilli",
+      "Location": "Edo",
+      "Vegetation Type": "Lowland Rainforest"
+    },
+    {
+      "S/No": 10,
+      "Name of Reserve": "Anambra",
+      "Location": "Anambra",
+      "Vegetation Type": "Rainforest/Derived Savannah"
+    },
+    {
+      "S/No": 11,
+      "Name of Reserve": "Uddi/Nsukka",
+      "Location": "Anambra",
+      "Vegetation Type": "Lowland Rainforest"
+    },
+    {
+      "S/No": 12,
+      "Name of Reserve": "Akpaka",
+      "Location": "Anambra",
+      "Vegetation Type": "Lowland Rainforest"
+    },
+    {
+      "S/No": 13,
+      "Name of Reserve": "Obudu",
+      "Location": "Cross River",
+      "Vegetation Type": "Lowland Rainforest"
+    },
+    {
+      "S/No": 14,
+      "Name of Reserve": "Stubbs Creek",
+      "Location": "Akwa-Ibom",
+      "Vegetation Type": "Mangrove/Swamp Forest"
+    },
+    {
+      "S/No": 15,
+      "Name of Reserve": "Ibi",
+      "Location": "Taraba",
+      "Vegetation Type": "Guinea Savannah"
+    },
+    {
+      "S/No": 16,
+      "Name of Reserve": "Wase Sanctuary",
+      "Location": "Plateau",
+      "Vegetation Type": "Sudan Savannah"
+    },
+    {
+      "S/No": 17,
+      "Name of Reserve": "Wase Rock Bird Sanctuary",
+      "Location": "Plateau",
+      "Vegetation Type": "Sudan Savannah"
+    },
+    {
+      "S/No": 18,
+      "Name of Reserve": "Pandam Wildlife Park",
+      "Location": "Plateau",
+      "Vegetation Type": "Sudan Savannah"
+    },
+    {
+      "S/No": 19,
+      "Name of Reserve": "Pai River",
+      "Location": "Plateau",
+      "Vegetation Type": "Sudan Savannah"
+    },
+    {
+      "S/No": 20,
+      "Name of Reserve": "Ankwe River",
+      "Location": "Nasarawa",
+      "Vegetation Type": "Sudan Savannah"
+    },
+    {
+      "S/No": 21,
+      "Name of Reserve": "Damper Sanctuary",
+      "Location": "Nasarawa",
+      "Vegetation Type": "Sudan Savannah"
+    },
+    {
+      "S/No": 22,
+      "Name of Reserve": "Nasarawa",
+      "Location": "Nasarawa",
+      "Vegetation Type": "Sudan Savannah"
+    },
+    {
+      "S/No": 23,
+      "Name of Reserve": "Lama/Bura",
+      "Location": "Bauchi",
+      "Vegetation Type": "Sudan Savannah"
+    },
+    {
+      "S/No": 24,
+      "Name of Reserve": "Kogin Kano",
+      "Location": "Kano",
+      "Vegetation Type": "Sudan Savannah"
+    },
+    {
+      "S/No": 25,
+      "Name of Reserve": "Lake Chad",
+      "Location": "Borno",
+      "Vegetation Type": "Sahel Savannah"
+    },
+    {
+      "S/No": 26,
+      "Name of Reserve": "Dagida",
+      "Location": "Niger",
+      "Vegetation Type": "Sudan Savannah"
+    },
+    {
+      "S/No": 27,
+      "Name of Reserve": "Alawa",
+      "Location": "Niger",
+      "Vegetation Type": "Sudan Savannah"
+    },
+    {
+      "S/No": 28,
+      "Name of Reserve": "Kwiambana",
+      "Location": "Zamfara",
+      "Vegetation Type": "Sudan Savannah"
+    },
+    {
+      "S/No": 29,
+      "Name of Reserve": "Yankari",
+      "Location": "Bauchi",
+      "Vegetation Type": "Guinea Savannah"
+    }
+  ],
+  "National Parks": [
+    {
+      "S/No": 1,
+      "Name of Park": "Kamuku",
+      "Area (ha)": 112100,
+      "Established": 1999,
+      "Location": "Kaduna",
+      "Vegetation Type": "Guinea Savannah"
+    },
+    {
+      "S/No": 2,
+      "Name of Park": "Kainji",
+      "Area (ha)": 538200,
+      "Established": 1979,
+      "Location": "Niger",
+      "Vegetation Type": "Guinea Savannah"
+    },
+    {
+      "S/No": 3,
+      "Name of Park": "Old Oyo",
+      "Area (ha)": 251200,
+      "Established": 1991,
+      "Location": "Oyo",
+      "Vegetation Type": "Dry Forest/Guinea Savannah"
+    },
+    {
+      "S/No": 4,
+      "Name of Park": "Okomu",
+      "Area (ha)": 18100,
+      "Established": 1999,
+      "Location": "Edo",
+      "Vegetation Type": "Lowland Rainforest"
+    },
+    {
+      "S/No": 5,
+      "Name of Park": "Cross River",
+      "Area (ha)": 400000,
+      "Established": 1991,
+      "Location": "Cross River",
+      "Vegetation Type": "Lowland Rainforest"
+    },
+    {
+      "S/No": 6,
+      "Name of Park": "Gashaka Gumti",
+      "Area (ha)": 673100,
+      "Established": 1991,
+      "Location": "Taraba",
+      "Vegetation Type": "Guinea Savannah/Montane"
+    },
+    {
+      "S/No": 7,
+      "Name of Park": "Chad Basin",
+      "Area (ha)": 225800,
+      "Established": 1991,
+      "Location": "Borno",
+      "Vegetation Type": "Sahel Savannah"
+    }
+  ],
+  "Threatened Plants": [
+    {
+      "Species": "Milicia excelsa",
+      "Main Uses": "Timber",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Diospyros elliotii",
+      "Main Uses": "Timber/Carving",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Triplochiduiton scleroxylon",
+      "Main Uses": "Timber",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Mansonia altissima",
+      "Main Uses": "Timber",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Masilania accuminata",
+      "Main Uses": "Chewing stick",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Garcina manni",
+      "Main Uses": "Chewing stick",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Oucunbaca aubrevillei",
+      "Main Uses": "Trado-medical",
+      "Status": "Almost Extinct"
+    },
+    {
+      "Species": "Erythrina senegalensis",
+      "Main Uses": "Medicine",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Cassia nigricans",
+      "Main Uses": "Medicine",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Nigella sativa",
+      "Main Uses": "Medicine",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Hymenocardia acida",
+      "Main Uses": "General",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Kigelia africana",
+      "Main Uses": "General",
+      "Status": "Endangered"
+    }
+  ],
+  "Threatened Animals": [
+    {
+      "Species": "Crocodylus niloticus",
+      "Main Uses": "Food/Medicine/Bags",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Osteolaemus tetraspis",
+      "Main Uses": "Food/Medicine",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Struthio camelus",
+      "Main Uses": "Food/Medicine",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Psittacus erithacus",
+      "Main Uses": "Medicine/Pet",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Cercopithecus erythrogaster",
+      "Main Uses": "Food",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Loxodonta africana",
+      "Main Uses": "Food/Ivory",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Trichecus senegalensis",
+      "Main Uses": "Food",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Giraffa camelopedalus",
+      "Main Uses": "Food/Medicine",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Python sabae",
+      "Main Uses": "Bags",
+      "Status": "Endangered"
+    },
+    {
+      "Species": "Gazella dorcas",
+      "Main Uses": "Food",
+      "Status": "Endangered"
+    }
+  ]
+}

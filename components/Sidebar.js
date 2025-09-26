@@ -3,9 +3,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSidebar } from '../context/SidebarContext';
+import { usePathname } from 'next/navigation';
 
 export default function Sidebar() {
   const { isSidebarOpen, toggleSidebar } = useSidebar();
+  const pathname = usePathname();
+  
+  const handleNavClick = () => {
+    // Close sidebar on mobile when nav item is clicked
+    if (window.innerWidth <= 768) {
+      toggleSidebar();
+    }
+  };
   
   return (
     <>
@@ -30,32 +39,32 @@ export default function Sidebar() {
         </div>
         
         <nav>
-          <Link href="/">
-            <div className="nav-item">
+          <Link href="/" onClick={handleNavClick}>
+            <div className={`nav-item ${pathname === '/' ? 'active' : ''}`}>
               <span className="nav-icon">🏠</span>
               {isSidebarOpen && <span className="nav-text">Home</span>}
             </div>
           </Link>
-          <Link href="/plants">
-            <div className="nav-item">
+          <Link href="/plants" onClick={handleNavClick}>
+            <div className={`nav-item ${pathname === '/plants' ? 'active' : ''}`}>
               <span className="nav-icon">🌿</span>
               {isSidebarOpen && <span className="nav-text">Explore Plants</span>}
             </div>
           </Link>
-          <Link href="/animals">
-            <div className="nav-item">
+          <Link href="/animals" onClick={handleNavClick}>
+            <div className={`nav-item ${pathname === '/animals' ? 'active' : ''}`}>
               <span className="nav-icon">🦁</span>
               {isSidebarOpen && <span className="nav-text">Explore Animals</span>}
             </div>
           </Link>
-          <Link href="/parks">
-            <div className="nav-item">
+          <Link href="/parks" onClick={handleNavClick}>
+            <div className={`nav-item ${pathname === '/parks' ? 'active' : ''}`}>
               <span className="nav-icon">🏞️</span>
               {isSidebarOpen && <span className="nav-text">National Parks</span>}
             </div>
           </Link>
-          <Link href="/alerts">
-            <div className="nav-item">
+          <Link href="/alerts" onClick={handleNavClick}>
+            <div className={`nav-item ${pathname === '/alerts' ? 'active' : ''}`}>
               <span className="nav-icon">⚠️</span>
               {isSidebarOpen && <span className="nav-text">Threatened Species</span>}
             </div>

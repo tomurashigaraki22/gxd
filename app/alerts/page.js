@@ -7,10 +7,11 @@ import { useSidebar } from '../../context/SidebarContext';
 
 export default function AlertsPage() {
   const { isSidebarOpen } = useSidebar();
-  const [threatenedSpecies, setThreatenedSpecies] = useState([]);
+  const [threatenedPlants, setThreatenedPlants] = useState([]);
+  const [threatenedAnimals, setThreatenedAnimals] = useState([]);
   const [filteredSpecies, setFilteredSpecies] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('plants'); // 'plants' or 'animals'
+  const [activeTab, setActiveTab] = useState('plant'); // 'plant' or 'animal'
   
   useEffect(() => {
     async function fetchData() {
@@ -19,18 +20,14 @@ export default function AlertsPage() {
         const data = await response.json();
         
         // Get threatened species data from the correct keys in the JSON
-        const threatenedPlants = data["Threatened Plants"] || [];
-        const threatenedAnimals = data["Threatened Animals"] || [];
+        const plantsData = data["Threatened Plants"] || [];
+        const animalsData = data["Threatened Animals"] || [];
         
-        // Combine and mark the type
-        const combinedData = [
-          ...threatenedPlants.map(plant => ({ ...plant, type: 'plant' })),
-          ...threatenedAnimals.map(animal => ({ ...animal, type: 'animal' }))
-        ];
+        setThreatenedPlants(plantsData);
+        setThreatenedAnimals(animalsData);
         
-        setThreatenedSpecies(combinedData);
         // Initially show plants
-        setFilteredSpecies(combinedData.filter(species => species.type === 'plant'));
+        setFilteredSpecies(plantsData);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching threatened species data:', error);
@@ -43,23 +40,26 @@ export default function AlertsPage() {
   
   useEffect(() => {
     // Filter by active tab
-    const filtered = threatenedSpecies.filter(species => species.type === activeTab);
-    setFilteredSpecies(filtered);
-  }, [activeTab, threatenedSpecies]);
+    if (activeTab === 'plant') {
+      setFilteredSpecies(threatenedPlants);
+    } else {
+      setFilteredSpecies(threatenedAnimals);
+    }
+  }, [activeTab, threatenedPlants, threatenedAnimals]);
   
   const handleSearch = (query) => {
     if (!query) {
       // If no query, show based on active tab
-      setFilteredSpecies(threatenedSpecies.filter(species => species.type === activeTab));
+      setFilteredSpecies(activeTab === 'plant' ? threatenedPlants : threatenedAnimals);
       return;
     }
     
-    const filtered = threatenedSpecies.filter(species => 
-      species.type === activeTab && (
-        species.Species?.toLowerCase().includes(query.toLowerCase()) ||
-        species.Status?.toLowerCase().includes(query.toLowerCase()) ||
-        species["Main Uses"]?.toLowerCase().includes(query.toLowerCase())
-      )
+    const dataToSearch = activeTab === 'plant' ? threatenedPlants : threatenedAnimals;
+    
+    const filtered = dataToSearch.filter(species => 
+      species.Species?.toLowerCase().includes(query.toLowerCase()) ||
+      species.Status?.toLowerCase().includes(query.toLowerCase()) ||
+      species["Main Uses"]?.toLowerCase().includes(query.toLowerCase())
     );
     
     setFilteredSpecies(filtered);
@@ -73,8 +73,8 @@ export default function AlertsPage() {
         
         <div className="tabs">
           <button 
-            className={`tab ${activeTab === 'plants' ? 'active' : ''}`}
-            onClick={() => setActiveTab('plants')}
+            className={`tab ${activeTab === 'plant' ? 'active' : ''}`}
+            onClick={() => setActiveTab('plant')}
           >
             Threatened Plants
           </button>

@@ -10,9 +10,11 @@
     "process-data": "node scripts/processData.js"
   },
   "dependencies": {
+    "leaflet": "^1.9.4",
     "next": "14.0.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-leaflet": "^5.0.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {

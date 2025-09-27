@@ -1,9 +1,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import Sidebar from '../../components/Sidebar';
 import Header from '../../components/Header';
 import { useSidebar } from '../../context/SidebarContext';
+
+// Dynamically import the map component to avoid SSR issues
+const NigeriaMap = dynamic(() => import('../../components/NigeriaMap'), {
+  ssr: false,
+  loading: () => <div className="map-loading">Loading map...</div>
+});
 
 export default function ParksPage() {
   const { isSidebarOpen } = useSidebar();
@@ -11,6 +18,17 @@ export default function ParksPage() {
   const [filteredParks, setFilteredParks] = useState([]);
   const [selectedPark, setSelectedPark] = useState(null);
   const [loading, setLoading] = useState(true);
+  
+  // Nigeria national parks with their actual coordinates (matching exact names from data)
+  const parkCoordinates = {
+    "Kamuku": { lat: 10.7, lng: 6.2 },        // Kaduna
+    "Kainji": { lat: 10.4, lng: 4.6 },        // Niger
+    "Old Oyo": { lat: 8.5, lng: 3.8 },        // Oyo
+    "Okomu": { lat: 6.3, lng: 5.6 },          // Edo
+    "Cross River": { lat: 5.7, lng: 8.7 },    // Cross River
+    "Gashaka Gumti": { lat: 7.3, lng: 11.5 }, // Taraba
+    "Chad Basin": { lat: 12.5, lng: 14.2 }    // Borno
+  };
   
   useEffect(() => {
     async function fetchData() {
@@ -20,10 +38,17 @@ export default function ParksPage() {
         
         // Get national parks data from the correct key in the JSON
         const parksData = data["National Parks"] || [];
-        setParks(parksData);
-        setFilteredParks(parksData);
-        if (parksData.length > 0) {
-          setSelectedPark(parksData[0]);
+        
+        // Add coordinates to parks data
+        const parksWithCoords = parksData.map(park => ({
+          ...park,
+          coordinates: parkCoordinates[park["Name of Park"]] || { lat: 9.0, lng: 8.0 }
+        }));
+        
+        setParks(parksWithCoords);
+        setFilteredParks(parksWithCoords);
+        if (parksWithCoords.length > 0) {
+          setSelectedPark(parksWithCoords[0]);
         }
         setLoading(false);
       } catch (error) {
@@ -51,6 +76,10 @@ export default function ParksPage() {
       setSelectedPark(filtered[0]);
     }
   };
+
+  const handleParkSelect = (park) => {
+    setSelectedPark(park);
+  };
   
   return (
     <div className="container">
@@ -63,34 +92,24 @@ export default function ParksPage() {
         ) : (
           <div className="parks-container">
             <div className="parks-map">
-              <div className="map-placeholder">
-                <h3>Nigeria National Parks Map</h3>
-                <div className="map-markers">
-                  {filteredParks.map((park, index) => (
-                    <div 
-                      key={index} 
-                      className={`map-marker ${selectedPark === park ? 'active' : ''}`}
-                      onClick={() => setSelectedPark(park)}
-                      style={{ 
-                        top: `${Math.random() * 70 + 10}%`, 
-                        left: `${Math.random() * 70 + 10}%` 
-                      }}
-                    >
-                      📍
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <NigeriaMap 
+                parks={filteredParks}
+                selectedPark={selectedPark}
+                onParkSelect={handleParkSelect}
+              />
             </div>
             
             {selectedPark && (
               <div className="park-details">
                 <div className="info-card">
                   <h2>{selectedPark["Name of Park"] || 'Unknown Park'}</h2>
-                  {selectedPark.Location && <p>Location: {selectedPark.Location}</p>}
-                  {selectedPark["Area (ha)"] && <p>Area: {selectedPark["Area (ha)"]} hectares</p>}
-                  {selectedPark.Established && <p>Established: {selectedPark.Established}</p>}
-                  {selectedPark["Vegetation Type"] && <p>Vegetation: {selectedPark["Vegetation Type"]}</p>}
+                  {selectedPark.Location && <p><strong>Location:</strong> {selectedPark.Location}</p>}
+                  {selectedPark["Area (ha)"] && <p><strong>Area:</strong> {selectedPark["Area (ha)"]} hectares</p>}
+                  {selectedPark.Established && <p><strong>Established:</strong> {selectedPark.Established}</p>}
+                  {selectedPark["Vegetation Type"] && <p><strong>Vegetation:</strong> {selectedPark["Vegetation Type"]}</p>}
+                  {selectedPark.coordinates && (
+                    <p><strong>Coordinates:</strong> {selectedPark.coordinates.lat.toFixed(2)}°N, {selectedPark.coordinates.lng.toFixed(2)}°E</p>
+                  )}
                 </div>
               </div>
             )}
